@@ -1,8 +1,7 @@
-import 'package:bookly/constants.dart';
-import 'package:bookly/features/home/presentation/views/home_view.dart';
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/features/splash/presentation/views/widgets/splash_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class FadeAnimaionBody extends StatefulWidget {
   const FadeAnimaionBody({
@@ -52,7 +51,7 @@ class _FadeAnimaionBodyState extends State<FadeAnimaionBody> with SingleTickerPr
 
   void navigateToHome() {
     Future.delayed(Duration(milliseconds: 2700), () {
-      Get.to(() => HomeView(), transition: Transition.fadeIn, duration: kTranstionDuration);
+      GoRouter.of(context).push(AppRouter.kHomeView);
     });
   }
 }
