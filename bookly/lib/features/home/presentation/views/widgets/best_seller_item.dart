@@ -57,7 +57,9 @@ class BestSellerItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("19.99 €", style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold)),
-                      BookRating()
+                      BookRating(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                      )
                     ],
                   )
                 ],
