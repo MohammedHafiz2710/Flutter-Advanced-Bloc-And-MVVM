@@ -44,13 +44,13 @@ class _FadeAnimaionBodyState extends State<FadeAnimaionBody> with SingleTickerPr
   }
 
   void initFadeAnimation() {
-    animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 2500));
+    animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
     fadeAnimation = Tween<double>(begin: 0, end: 1).animate(animationController);
     animationController.forward();
   }
 
   void navigateToHome() {
-    Future.delayed(Duration(milliseconds: 2700), () {
+    Future.delayed(Duration(milliseconds: 2200), () {
       GoRouter.of(context).push(AppRouter.kHomeView);
     });
   }
