@@ -1,9 +1,6 @@
-import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/presentation/views/widgets/book_action.dart';
-import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly/features/home/presentation/views/widgets/books_details_section.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_app_bar_details_book.dart';
-import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
-import 'package:bookly/features/home/presentation/views/widgets/similar_books_list_view.dart';
+import 'package:bookly/features/home/presentation/views/widgets/similar_books_section.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsView extends StatelessWidget {
@@ -21,55 +18,13 @@ class BookDetailsView extends StatelessWidget {
               child: Column(
                 children: [
                   CustomAppBarDetailsBook(),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.19),
-                    child: CustomBookImage(),
-                  ),
-                  SizedBox(
-                    height: 45,
-                  ),
-                  Text(
-                    "The Jungle Book",
-                    style: Styles.textStyle30,
-                  ),
-                  SizedBox(
-                    height: 6,
-                  ),
-                  Opacity(
-                    opacity: 0.7,
-                    child: Text(
-                      "Rudyard Kipling",
-                      style: Styles.textStyle18.copyWith(fontStyle: FontStyle.italic),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 14,
-                  ),
-                  BookRating(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                  ),
-                  BookAction(),
+                  BookDetailsSection(),
                   Expanded(
                     child: SizedBox(
                       height: 15,
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "You can also like",
-                      style: Styles.textStyle14.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  SimilarBooksListView(),
-                  SizedBox(
-                    height: 40,
-                  ),
+                  SimilarBooksSection(),
                 ],
               ),
             ),
