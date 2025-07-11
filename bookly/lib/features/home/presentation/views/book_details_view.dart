@@ -11,59 +11,71 @@ class BookDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: Column(
-          children: [
-            CustomAppBarDetailsBook(),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.19),
-              child: CustomBookImage(),
-            ),
-            SizedBox(
-              height: 45,
-            ),
-            Text(
-              "The Jungle Book",
-              style: Styles.textStyle30,
-            ),
-            SizedBox(
-              height: 6,
-            ),
-            Opacity(
-              opacity: 0.7,
-              child: Text(
-                "Rudyard Kipling",
-                style: Styles.textStyle18.copyWith(fontStyle: FontStyle.italic),
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Scaffold(
+            body: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                children: [
+                  CustomAppBarDetailsBook(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.19),
+                    child: CustomBookImage(),
+                  ),
+                  SizedBox(
+                    height: 45,
+                  ),
+                  Text(
+                    "The Jungle Book",
+                    style: Styles.textStyle30,
+                  ),
+                  SizedBox(
+                    height: 6,
+                  ),
+                  Opacity(
+                    opacity: 0.7,
+                    child: Text(
+                      "Rudyard Kipling",
+                      style: Styles.textStyle18.copyWith(fontStyle: FontStyle.italic),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 14,
+                  ),
+                  BookRating(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+                  BookAction(),
+                  Expanded(
+                    child: SizedBox(
+                      height: 15,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "You can also like",
+                      style: Styles.textStyle14.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  SimilarBooksListView(),
+                  SizedBox(
+                    height: 40,
+                  ),
+                ],
               ),
             ),
-            SizedBox(
-              height: 14,
-            ),
-            BookRating(
-              mainAxisAlignment: MainAxisAlignment.center,
-            ),
-            BookAction(),
-            SizedBox(
-              height: 15,
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "You can also like",
-                style: Styles.textStyle14.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            SimilarBooksListView()
-          ],
-        ),
-      ),
+          ),
+        )
+      ],
     );
   }
 }
