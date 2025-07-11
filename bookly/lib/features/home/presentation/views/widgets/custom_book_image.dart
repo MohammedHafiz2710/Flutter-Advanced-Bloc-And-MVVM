@@ -9,9 +9,9 @@ class CustomBookImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1.4 / 2,
+      aspectRatio: 1.3 / 2,
       child: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), image: DecorationImage(image: AssetImage(AssetsData.jungleBook), fit: BoxFit.fill)),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: DecorationImage(image: AssetImage(AssetsData.jungleBook), fit: BoxFit.fill)),
       ),
     );
   }
