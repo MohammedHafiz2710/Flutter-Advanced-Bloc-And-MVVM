@@ -1,4 +1,6 @@
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/core/widgets/custom_button.dart';
+import 'package:bookly/features/home/presentation/views/widgets/book_action.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_app_bar_details_book.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
@@ -41,7 +43,8 @@ class BookDetailsView extends StatelessWidget {
             ),
             BookRating(
               mainAxisAlignment: MainAxisAlignment.center,
-            )
+            ),
+            BookAction()
           ],
         ),
       ),
