@@ -12,7 +12,8 @@ class FadeAnimaionBody extends StatefulWidget {
   State<FadeAnimaionBody> createState() => _FadeAnimaionBodyState();
 }
 
-class _FadeAnimaionBodyState extends State<FadeAnimaionBody> with SingleTickerProviderStateMixin {
+class _FadeAnimaionBodyState extends State<FadeAnimaionBody>
+    with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<double> fadeAnimation;
   @override
@@ -44,8 +45,10 @@ class _FadeAnimaionBodyState extends State<FadeAnimaionBody> with SingleTickerPr
   }
 
   void initFadeAnimation() {
-    animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
-    fadeAnimation = Tween<double>(begin: 0, end: 1).animate(animationController);
+    animationController = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 2000));
+    fadeAnimation =
+        Tween<double>(begin: 0, end: 1).animate(animationController);
     animationController.forward();
   }
 

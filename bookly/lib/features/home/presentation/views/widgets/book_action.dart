@@ -13,7 +13,8 @@ class BookAction extends StatelessWidget {
           Expanded(
               child: CustomButton(
             backgroundColor: Colors.white,
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(16), bottomLeft: Radius.circular(16)),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16), bottomLeft: Radius.circular(16)),
             textColor: Colors.black,
             text: '19.99 €',
           )),
@@ -21,7 +22,9 @@ class BookAction extends StatelessWidget {
               child: CustomButton(
             fontSize: 16,
             backgroundColor: Color(0xffEF8262),
-            borderRadius: BorderRadius.only(topRight: Radius.circular(16), bottomRight: Radius.circular(16)),
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(16),
+                bottomRight: Radius.circular(16)),
             textColor: Colors.white,
             text: 'Free preview',
           ))

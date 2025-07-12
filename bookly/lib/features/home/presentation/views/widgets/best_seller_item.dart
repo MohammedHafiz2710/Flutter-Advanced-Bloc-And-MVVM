@@ -24,7 +24,11 @@ class BestSellerItem extends StatelessWidget {
             AspectRatio(
               aspectRatio: 1.3 / 2,
               child: Container(
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), image: DecorationImage(image: AssetImage(AssetsData.jungleBook), fit: BoxFit.fill)),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    image: DecorationImage(
+                        image: AssetImage(AssetsData.jungleBook),
+                        fit: BoxFit.fill)),
               ),
             ),
             const SizedBox(
@@ -38,7 +42,8 @@ class BestSellerItem extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Text(
                       "Harry Potter and the Goblet of Fire",
-                      style: Styles.textStyle20.copyWith(fontFamily: kGtSectraFine),
+                      style: Styles.textStyle20
+                          .copyWith(fontFamily: kGtSectraFine),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -56,7 +61,9 @@ class BestSellerItem extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("19.99 €", style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold)),
+                      Text("19.99 €",
+                          style: Styles.textStyle20
+                              .copyWith(fontWeight: FontWeight.bold)),
                       BookRating(
                         mainAxisAlignment: MainAxisAlignment.start,
                       )
