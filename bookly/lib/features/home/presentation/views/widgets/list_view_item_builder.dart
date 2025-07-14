@@ -1,8 +1,9 @@
+import 'package:bookly/core/widgets/my_loading_indicator.dart';
 import 'package:bookly/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 
 class ListViewItemBuilder extends StatelessWidget {
   const ListViewItemBuilder({
@@ -42,23 +43,10 @@ class ListViewItemBuilder extends StatelessWidget {
               ),
             );
           } else {
-            return MyLoadingIndecator();
+            return MyLoadingIndicator();
           }
         },
       ),
-    );
-  }
-}
-
-class MyLoadingIndecator extends StatelessWidget {
-  const MyLoadingIndecator({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SpinKitWave(
-      color: Colors.white,
     );
   }
 }
