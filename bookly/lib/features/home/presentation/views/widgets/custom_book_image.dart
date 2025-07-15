@@ -16,7 +16,8 @@ class CustomBookImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         child: CachedNetworkImage(
           fit: BoxFit.fill,
-          imageUrl: imageUrl ?? "https://template.canva.com/EADaopxBna4/1/0/251w-ujD6UPGa9hw.jpg",
+          imageUrl: imageUrl ??
+              "https://template.canva.com/EADaopxBna4/1/0/251w-ujD6UPGa9hw.jpg",
           errorWidget: (context, url, error) => Icon(
             Icons.error,
             size: 24,

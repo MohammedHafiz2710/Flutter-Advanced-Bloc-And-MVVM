@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_action.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
@@ -12,8 +14,7 @@ class BookDetailsSection extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.19),
+          padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.19),
           child: CustomBookImage(),
         ),
         SizedBox(
@@ -38,6 +39,8 @@ class BookDetailsSection extends StatelessWidget {
         ),
         BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
+          rating: double.parse((Random().nextDouble() * 5).toStringAsFixed(1)),
+          ratingsCount: Random().nextInt(2500) + 1000,
         ),
         BookAction(),
       ],

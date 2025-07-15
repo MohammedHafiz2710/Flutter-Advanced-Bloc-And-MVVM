@@ -24,11 +24,13 @@ class ServerFailure extends Failure {
 
       case DioExceptionType.badResponse:
         if (dioException.response != null) {
-          return ServerFailure.fromResponse(dioException.response!.statusCode!, dioException.response!.data);
+          return ServerFailure.fromResponse(
+              dioException.response!.statusCode!, dioException.response!.data);
         }
 
       case DioExceptionType.cancel:
-        return ServerFailure(errorMessage: "Request to ApiServer was cancelled");
+        return ServerFailure(
+            errorMessage: "Request to ApiServer was cancelled");
 
       case DioExceptionType.connectionError:
         return ServerFailure(errorMessage: "Connection Error with ApiServer");
@@ -45,11 +47,14 @@ class ServerFailure extends Failure {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return ServerFailure(errorMessage: response["error"]["message"]);
     } else if (statusCode == 404) {
-      return ServerFailure(errorMessage: "Your request not found,please try again");
+      return ServerFailure(
+          errorMessage: "Your request not found,please try again");
     } else if (statusCode == 500) {
-      return ServerFailure(errorMessage: "Internal server error, please try again later");
+      return ServerFailure(
+          errorMessage: "Internal server error, please try again later");
     } else {
-      return ServerFailure(errorMessage: "Something went wrong, please try again later");
+      return ServerFailure(
+          errorMessage: "Something went wrong, please try again later");
     }
   }
 }

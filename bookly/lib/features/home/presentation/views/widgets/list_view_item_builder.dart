@@ -4,7 +4,6 @@ import 'package:bookly/features/home/presentation/views/widgets/custom_book_imag
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class ListViewItemBuilder extends StatelessWidget {
   const ListViewItemBuilder({
     super.key,
@@ -29,7 +28,8 @@ class ListViewItemBuilder extends StatelessWidget {
                       child: SizedBox(
                         height: MediaQuery.of(context).size.height * 0.23,
                         child: CustomBookImage(
-                          imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                          imageUrl: state
+                              .books[index].volumeInfo.imageLinks.thumbnail,
                         ),
                       ),
                     );

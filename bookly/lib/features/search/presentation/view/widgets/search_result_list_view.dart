@@ -1,4 +1,4 @@
-import 'package:bookly/features/home/presentation/views/widgets/best_seller_item.dart';
+
 import 'package:flutter/material.dart';
 
 class SearchResultListView extends StatelessWidget {
@@ -12,7 +12,8 @@ class SearchResultListView extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(childCount: 10, (context, index) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 20),
-          child: const BestSellerItem(),
+          child: Text("result $index"),
+          // child: const BestSellerItem(),
         );
       }),
     );
