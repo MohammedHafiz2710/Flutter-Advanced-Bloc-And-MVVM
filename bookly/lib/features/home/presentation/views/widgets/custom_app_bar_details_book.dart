@@ -9,6 +9,7 @@ class CustomAppBarDetailsBook extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: true,
       bottom: false,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

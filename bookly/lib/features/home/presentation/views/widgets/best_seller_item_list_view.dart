@@ -29,10 +29,12 @@ class BestSellerItemListView extends StatelessWidget {
             ));
           } else if (state is NewestBooksFailure) {
             return SliverToBoxAdapter(
-              child: MyErrorWidget(),
+              child: MyErrorWidget(
+                message: state.errorMessage,
+              ),
             );
           } else {
-            return SliverToBoxAdapter(
+            return SliverFillRemaining(
               child: MyLoadingIndicator(),
             );
           }

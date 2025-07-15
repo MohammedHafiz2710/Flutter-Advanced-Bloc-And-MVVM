@@ -12,21 +12,23 @@ class SearchViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+        top: true,
+        minimum: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 20),
         child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: CustomScrollView(physics: const BouncingScrollPhysics(), slivers: [
-        SliverToBoxAdapter(child: CustomSearchTextField()),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            child: Text(
-              "Search Results",
-              style: Styles.textStyle18.copyWith(fontFamily: kGtSectraFine),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: CustomScrollView(physics: const BouncingScrollPhysics(), slivers: [
+            SliverToBoxAdapter(child: CustomSearchTextField()),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Text(
+                  "Search Results",
+                  style: Styles.textStyle18.copyWith(fontFamily: kGtSectraFine),
+                ),
+              ),
             ),
-          ),
-        ),
-        SearchResultListView(),
-      ]),
-    ));
+            SearchResultListView(),
+          ]),
+        ));
   }
 }

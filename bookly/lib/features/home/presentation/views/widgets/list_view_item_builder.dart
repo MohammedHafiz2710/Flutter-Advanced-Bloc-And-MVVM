@@ -12,13 +12,14 @@ class ListViewItemBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size.height * 0.23;
     return Padding(
       padding: const EdgeInsets.only(left: 30),
       child: BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
         builder: (context, state) {
           if (state is FeaturedBooksSuccess) {
             return SizedBox(
-              height: MediaQuery.of(context).size.height * 0.23,
+              height: mediaQuery,
               child: ListView.builder(
                   physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
@@ -27,7 +28,7 @@ class ListViewItemBuilder extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.23,
+                        height: mediaQuery,
                         child: CustomBookImage(
                           imageUrl: state.books[index].volumeInfo.imageLinks?.thumbnail ?? " ",
                         ),
@@ -36,9 +37,11 @@ class ListViewItemBuilder extends StatelessWidget {
                   }),
             );
           } else if (state is FeaturedBooksFailure) {
-            return MyErrorWidget();
+            return MyErrorWidget(
+              message: state.errorMessage,
+            );
           } else {
-            return MyLoadingIndicator();
+            return SizedBox(height: mediaQuery, child: MyLoadingIndicator());
           }
         },
       ),
