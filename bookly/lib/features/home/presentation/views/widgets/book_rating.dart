@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookRating extends StatelessWidget {
-  final double rating;
+  final num rating;
   final int ratingsCount;
   final MainAxisAlignment mainAxisAlignment;
   const BookRating({

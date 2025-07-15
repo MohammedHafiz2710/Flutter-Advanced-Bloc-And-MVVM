@@ -31,7 +31,7 @@ class BestSellerItem extends StatelessWidget {
             AspectRatio(
               aspectRatio: 1.3 / 2,
               child: CustomBookImage(
-                imageUrl: book.volumeInfo.imageLinks.thumbnail,
+                imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? " ",
               ),
             ),
             const SizedBox(

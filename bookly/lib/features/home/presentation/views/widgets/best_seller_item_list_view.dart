@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/error_widget.dart';
 import 'package:bookly/core/widgets/my_loading_indicator.dart';
 import 'package:bookly/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/best_seller_item.dart';
@@ -28,9 +29,7 @@ class BestSellerItemListView extends StatelessWidget {
             ));
           } else if (state is NewestBooksFailure) {
             return SliverToBoxAdapter(
-              child: Center(
-                child: Text(state.errorMessage),
-              ),
+              child: MyErrorWidget(),
             );
           } else {
             return SliverToBoxAdapter(

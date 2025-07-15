@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/error_widget.dart';
 import 'package:bookly/core/widgets/my_loading_indicator.dart';
 import 'package:bookly/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
@@ -28,20 +29,14 @@ class ListViewItemBuilder extends StatelessWidget {
                       child: SizedBox(
                         height: MediaQuery.of(context).size.height * 0.23,
                         child: CustomBookImage(
-                          imageUrl: state
-                              .books[index].volumeInfo.imageLinks.thumbnail,
+                          imageUrl: state.books[index].volumeInfo.imageLinks?.thumbnail ?? " ",
                         ),
                       ),
                     );
                   }),
             );
           } else if (state is FeaturedBooksFailure) {
-            return Center(
-              child: Text(
-                'Failed to load featured books',
-                style: TextStyle(color: Colors.red),
-              ),
-            );
+            return MyErrorWidget();
           } else {
             return MyLoadingIndicator();
           }
