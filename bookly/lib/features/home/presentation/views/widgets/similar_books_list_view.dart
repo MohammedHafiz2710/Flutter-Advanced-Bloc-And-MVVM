@@ -1,5 +1,9 @@
+import 'package:bookly/core/utils/error_widget.dart';
+import 'package:bookly/core/widgets/my_loading_indicator.dart';
+import 'package:bookly/features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SimilarBooksListView extends StatelessWidget {
   const SimilarBooksListView({
@@ -8,18 +12,28 @@ class SimilarBooksListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.15,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: 10,
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: CustomBookImage(),
+    return BlocBuilder<SimilarBooksCubit, SimilarBooksState>(
+      builder: (context, state) {
+        if (state is SimilarBooksSuccess) {
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * 0.15,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: CustomBookImage(),
+                );
+              },
+            ),
           );
-        },
-      ),
+        } else if (state is SimilarBooksFailure) {
+          return MyErrorWidget(message: state.errorMessage);
+        } else {
+          return MyLoadingIndicator();
+        }
+      },
     );
   }
 }
