@@ -54,7 +54,7 @@ class BestSellerItem extends StatelessWidget {
                     height: 3,
                   ),
                   Text(
-                    book.volumeInfo.authors![0],
+                    book.volumeInfo.authors?[0] ?? "Unknown Author",
                     style: Styles.textStyle14,
                   ),
                   SizedBox(
