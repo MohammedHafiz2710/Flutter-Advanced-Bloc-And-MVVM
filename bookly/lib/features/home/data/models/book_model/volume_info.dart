@@ -62,7 +62,7 @@ class VolumeInfo extends Equatable {
         readingModes: json['readingModes'] == null ? null : ReadingModes.fromJson(json['readingModes'] as Map<String, dynamic>),
         pageCount: json['pageCount'] as int?,
         printType: json['printType'] as String?,
-        categories: (json['categories'] as List<dynamic>?)!.cast<String>(),
+        categories: json['categories'] == null ? null : (json['categories'] as List<dynamic>).cast<String>(),
         averageRating: json['averageRating'],
         ratingsCount: json['ratingsCount'] as int?,
         maturityRating: json['maturityRating'] as String?,

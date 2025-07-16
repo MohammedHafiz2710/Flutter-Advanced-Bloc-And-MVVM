@@ -1,13 +1,15 @@
 import 'dart:math';
 
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_action.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
+  final BookModel bookModel;
+  const BookDetailsSection({super.key, required this.bookModel});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +17,15 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.19),
-          child: CustomBookImage(),
+          child: CustomBookImage(
+            imageUrl: bookModel.volumeInfo.imageLinks?.smallThumbnail ?? " ",
+          ),
         ),
         SizedBox(
           height: 45,
         ),
         Text(
-          "The Jungle Book",
+          bookModel.volumeInfo.title!,
           style: Styles.textStyle30,
         ),
         SizedBox(
@@ -30,7 +34,7 @@ class BookDetailsSection extends StatelessWidget {
         Opacity(
           opacity: 0.7,
           child: Text(
-            "Rudyard Kipling",
+            bookModel.volumeInfo.authors![0],
             style: Styles.textStyle18.copyWith(fontStyle: FontStyle.italic),
           ),
         ),
@@ -39,8 +43,8 @@ class BookDetailsSection extends StatelessWidget {
         ),
         BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
-          rating: double.parse((Random().nextDouble() * 5).toStringAsFixed(1)),
-          ratingsCount: Random().nextInt(2500) + 1000,
+          rating: bookModel.volumeInfo.averageRating ?? double.parse((Random().nextDouble() * 5).toStringAsFixed(1)),
+          ratingsCount: bookModel.volumeInfo.ratingsCount ?? Random().nextInt(2500) + 1000,
         ),
         BookAction(),
       ],

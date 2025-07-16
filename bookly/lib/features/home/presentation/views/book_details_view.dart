@@ -17,7 +17,7 @@ class BookDetailsView extends StatefulWidget {
 class _BookDetailsViewState extends State<BookDetailsView> {
   @override
   void initState() {
-    BlocProvider.of<SimilarBooksCubit>(context).fetchSimilarBooks(category: widget.bookModel.volumeInfo.categories![0]);
+    BlocProvider.of<SimilarBooksCubit>(context).fetchSimilarBooks(category: widget.bookModel.volumeInfo.title!);
     super.initState();
   }
 
@@ -26,14 +26,13 @@ class _BookDetailsViewState extends State<BookDetailsView> {
     return CustomScrollView(
       slivers: [
         SliverFillRemaining(
-          hasScrollBody: false,
           child: Scaffold(
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
+              child: ListView(
                 children: [
                   CustomAppBarDetailsBook(),
-                  BookDetailsSection(),
+                  BookDetailsSection(bookModel: widget.bookModel),
                   Expanded(
                     child: SizedBox(
                       height: 15,
