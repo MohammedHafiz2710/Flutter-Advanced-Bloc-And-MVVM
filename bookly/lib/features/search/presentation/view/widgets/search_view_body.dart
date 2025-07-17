@@ -35,7 +35,7 @@ class SearchViewBody extends StatelessWidget {
                 } else if (state is SearchFailure) {
                   return MyErrorWidget(message: state.errorMessage);
                 } else {
-                  return MyLoadingIndicator();
+                  return SizedBox(height: MediaQuery.of(context).size.height * 0.77, child: MyLoadingIndicator());
                 }
               }),
             ),
