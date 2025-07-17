@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:equatable/equatable.dart';
 
 import 'image_links.dart';
@@ -63,8 +65,8 @@ class VolumeInfo extends Equatable {
         pageCount: json['pageCount'] as int?,
         printType: json['printType'] as String?,
         categories: json['categories'] == null ? null : (json['categories'] as List<dynamic>).cast<String>(),
-        averageRating: json['averageRating'],
-        ratingsCount: json['ratingsCount'] as int?,
+        averageRating: json['averageRating'] == null ? double.parse((Random().nextDouble() * 5).toStringAsFixed(1)) : json['averageRating'] as num?,
+        ratingsCount: json['ratingsCount'] == null ? Random().nextInt(2500) + 1000 : json['ratingsCount'] as int?,
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,
         contentVersion: json['contentVersion'] as String?,

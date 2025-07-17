@@ -43,10 +43,12 @@ class BookDetailsSection extends StatelessWidget {
         ),
         BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
-          rating: bookModel.volumeInfo.averageRating ?? double.parse((Random().nextDouble() * 5).toStringAsFixed(1)),
-          ratingsCount: bookModel.volumeInfo.ratingsCount ?? Random().nextInt(2500) + 1000,
+          rating: bookModel.volumeInfo.averageRating!,
+          ratingsCount: bookModel.volumeInfo.ratingsCount!,
         ),
-        BookAction(),
+        BookAction(
+          bookModel: bookModel,
+        ),
       ],
     );
   }

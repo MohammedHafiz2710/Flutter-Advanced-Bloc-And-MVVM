@@ -65,9 +65,9 @@ class BestSellerItem extends StatelessWidget {
                     children: [
                       Text("Free", style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold)),
                       BookRating(
-                        rating: book.volumeInfo.averageRating ?? double.parse((Random().nextDouble() * 5).toStringAsFixed(1)),
+                        rating: book.volumeInfo.averageRating!,
                         mainAxisAlignment: MainAxisAlignment.start,
-                        ratingsCount: book.volumeInfo.ratingsCount ?? Random().nextInt(2500) + 1000,
+                        ratingsCount: book.volumeInfo.ratingsCount!,
                       )
                     ],
                   )
