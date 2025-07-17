@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';

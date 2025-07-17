@@ -23,9 +23,7 @@ class CustomAppBarDetailsBook extends StatelessWidget {
                 size: 32,
               )),
           IconButton(
-              onPressed: () {
-                GoRouter.of(context).pop();
-              },
+              onPressed: () {},
               icon: Icon(
                 Icons.shopping_cart_outlined,
                 size: 32,
